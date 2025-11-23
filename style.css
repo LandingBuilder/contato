@@ -1,0 +1,269 @@
+/*==================================
+  CSS REVISADO - LP BUILDER PREMIUM
+  ==================================*/
+
+/* 1. RESET E VARIÁVEIS GLOBAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta de Cores Premium (Roxo + Neon) */
+    --color-dark: #0F001A; /* Fundo muito escuro */
+    --color-primary: #8E24AA; /* Roxo profundo (Credibilidade) */
+    --color-secondary: #00FFD1; /* Ciano/Verde Neon (Tecnologia/Destaque) */
+    --color-text: #E0E0E0;
+    --color-white: #FFFFFF;
+    
+    /* Tipografia */
+    --font-heading: 'Poppins', sans-serif;
+    
+    /* Sombras */
+    --shadow-deep: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* 2. CONFIGURAÇÃO DA TELA (100% VISÍVEL) */
+html {
+    height: 100vh; /* Garante que o elemento raiz tenha 100% da altura da viewport */
+}
+
+body {
+    /* Define o tamanho exato da tela */
+    height: 100vh; 
+    width: 100vw;
+    
+    /* Aplica o fundo que deve cobrir toda essa área */
+    background: radial-gradient(circle at top, #2C004F 0%, var(--color-dark) 100%);
+    
+    /* Permite rolagem suave se o conteúdo for muito longo */
+    overflow-y: auto; 
+    overflow-x: hidden;
+    
+    /* Mantém o Flexbox para alinhamento */
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; /* Alinha o conteúdo ao topo */
+    
+    /* Padding para afastar o card do topo (Ajuste fino) */
+    padding: 60px 20px; 
+    
+    font-family: var(--font-heading);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* 3. CARD PRINCIPAL (PROFILE-CARD) */
+.profile-card {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    padding: 40px 30px;
+    background: rgba(14, 0, 26, 0.85);
+    border-radius: 25px;
+    border: 1px solid rgba(142, 36, 170, 0.4);
+    box-shadow: var(--shadow-deep);
+    position: relative;
+    z-index: 1;
+    margin-top: auto; 
+    margin-bottom: auto; /* Para centralização em media queries menores */
+}
+
+/* 4. HEADER E IMAGEM */
+.profile-image {
+    width: 140px; 
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: none;
+    
+    /* Múltiplas Sombras (Anel 1 + Anel 2 + Sombra de Profundidade) */
+    box-shadow: 
+        0 0 0 5px var(--color-secondary), /* Anel 1 (Neon) */
+        0 0 0 10px var(--color-primary), /* Anel 2 (Roxo) */
+        0 10px 30px rgba(0, 0, 0, 0.5); 
+        
+    transition: all 0.5s ease;
+}
+
+/* Efeito de Expansão de Luz no Logo */
+.profile-image:hover {
+    transform: scale(1.08); 
+    box-shadow: 
+        0 0 0 10px var(--color-secondary), 
+        0 0 0 25px var(--color-primary),  
+        0 0 30px 10px var(--color-secondary), 
+        0 15px 40px rgba(0, 0, 0, 0.7); 
+}
+
+.brand-name {
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: var(--color-white);
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Sombra sutil */
+}
+
+.tagline {
+    font-size: 1em;
+    font-weight: 300;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.service-highlight {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 35px;
+    padding: 10px 15px;
+    background: rgba(142, 36, 170, 0.2);
+    border-radius: 10px;
+    border: 1px solid var(--color-primary);
+    color: var(--color-text);
+}
+
+.highlight-text {
+    color: var(--color-secondary);
+    text-shadow: 0 0 8px var(--color-secondary), 0 0 15px rgba(0, 255, 209, 0.5); 
+}
+
+/* 5. BOTÕES DE LINKS (LINKS-SECTION) */
+.links-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.link-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary); 
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 18px 20px;
+    border-radius: 50px;
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.link-button i {
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+/* Efeito de Clique (Active State) - Profissionalismo */
+.link-button:active {
+    transform: translateY(0px) scale(0.98); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+    transition: none; 
+}
+
+/* Efeito Hover Aprimorado (apenas para telas não-touch) */
+@media (hover: hover) and (pointer: fine) {
+    .link-button:hover {
+        background-color: #6A1B9A;
+        transform: translateY(-4px); 
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+}
+
+
+/* 6. CTA PRINCIPAL (DESTAQUE NEON) */
+.cta-primary {
+    background: var(--color-secondary); 
+    color: var(--color-dark); 
+    font-size: 1.1em;
+    padding: 20px 20px;
+    border: 2px solid var(--color-white);
+    animation: cta-pulse 2s infinite ease-out;
+}
+
+.cta-primary:hover {
+    background: var(--color-white);
+    transform: scale(1.05); 
+    color: var(--color-primary);
+    box-shadow: 0 0 20px var(--color-secondary);
+    animation: none;
+}
+
+/* Botão de Destaque Secundário (ex: Depoimentos) */
+.link-secondary {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    opacity: 0.8;
+}
+
+.link-secondary:hover {
+    background: var(--color-primary);
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* 7. ANIMAÇÕES */
+@keyframes cta-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 209, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 255, 209, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 209, 0);
+    }
+}
+
+/* 8. RODAPÉ */
+.site-footer {
+    margin-top: 40px;
+    font-size: 0.75em;
+    opacity: 0.5;
+    font-weight: 300;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 9. MEDIA QUERY PARA CELULARES (AJUSTE FINO) */
+@media (max-width: 480px) {
+    body {
+        padding: 40px 15px; /* Diminui o padding do body em telas estreitas */
+    }
+    
+    .profile-image {
+        width: 120px; 
+        height: 120px;
+        margin-bottom: 20px;
+    }
+    
+    .brand-name {
+        font-size: 1.8em;
+    }
+    
+    .tagline {
+        font-size: 0.9em;
+        margin-bottom: 15px;
+    }
+
+    .service-highlight {
+        font-size: 1em;
+        padding: 8px 10px;
+        margin-bottom: 25px;
+    }
+
+    .link-button {
+        padding: 14px 15px;
+        font-size: 0.95em;
+    }
+
+    .cta-primary {
+        padding: 16px 15px;
+        font-size: 1em;
+    }
+}
